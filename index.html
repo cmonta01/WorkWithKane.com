@@ -1,4 +1,102 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work With Kane | Straightforward Real Estate Solutions</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #d4a359;
+      --border: #262b36;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 24px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 1rem; color: var(--accent); }
+    .nav-btn { background: var(--accent); color: #111; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+    .hero { padding: 72px 0 56px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 18px; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 640px; margin: 0 auto 30px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 32px 0 64px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+    .step-num { color: var(--accent); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .card h3 { margin-bottom: 8px; font-size: 1.15rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .form-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; max-width: 560px; margin: 0 auto 72px; }
+    .form-wrap h2 { margin-bottom: 8px; font-size: 1.6rem; }
+    .form-wrap p { color: var(--muted); margin-bottom: 22px; font-size: 0.95rem; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #d1d5db; }
+    input, textarea { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); background: #0f1115; color: var(--text); margin-bottom: 16px; font-size: 1rem; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+    button[type="submit"] { width: 100%; background: var(--accent); color: #111; border: none; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; }
+    button[type="submit"]:hover { opacity: 0.92; }
+    #status { margin-top: 14px; font-size: 0.95rem; text-align: center; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">Work With Kane</div>
+      <a href="#inquiry" class="nav-btn">Request a Review</a>
+    </header>
+
+    <section class="hero">
+      <h1>Straightforward Solutions for Off-Market &amp; Problem Properties</h1>
+      <p>Dealing with an inherited property, needed repairs, or a tight timeline in El Paso? We work directly with homeowners to explore fair cash or structured options—no repairs, no pressure, and zero agent commissions.</p>
+      <a href="#inquiry" class="nav-btn">Get Your Property Options</a>
+    </section>
+
+    <section class="steps">
+      <div class="card">
+        <div class="step-num">Step 01</div>
+        <h3>Share the Details</h3>
+        <p>Submit the property address and basic situation below. Takes less than 60 seconds.</p>
+      </div>
+      <div class="card">
+        <div class="step-num">Step 02</div>
+        <h3>Review Clear Options</h3>
+        <p>We evaluate the numbers and walk through straightforward cash or creative/novation solutions.</p>
+      </div>
+      <div class="card">
+        <div class="step-num">Step 03</div>
+        <h3>Close on Your Timeline</h3>
+        <p>Everything closes cleanly through a reputable local title company on a schedule that fits you.</p>
+      </div>
+    </section>
+
+    <section id="inquiry" class="form-wrap">
+      <h2>Start a Conversation</h2>
+      <p>Fill out the form below and Kane will follow up directly.</p>
+      <form id="leadForm">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Full name" />
+
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="(915) 555-0199" />
+
+        <label for="address">Property Address or ZIP *</label>
+        <input type="text" id="address" name="address" required placeholder="123 Main St, El Paso, TX 79938" />
+
+        <label for="notes">Situation / Timeline (Optional)</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Inherited property, repairs needed, behind on payments, or preferred closing timeframe..."></textarea>
+
+        <button type="submit" id="submitBtn">Submit Property Info</button>
+        <div id="status"></div>
+      </form>
+    </section>
+
+    <footer>
+      &copy; 2026 Work With Kane &bull; El Paso, TX &bull; @WorkWithKane
+    </footer>
+  </div>
+
+  <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKafcvEZTqkqsorUo6Qkf8wupFDIi_-AsrzERK4swhefqyYK9Y2-RB-CM7OppG9FZn/exec";
     const form = document.getElementById("leadForm");
     const statusEl = document.getElementById("status");
@@ -33,7 +131,6 @@
         btn.textContent = "Submit Property Info";
       }
     });
-  </script>
   </script>
 </body>
 </html>
